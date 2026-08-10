@@ -31,7 +31,6 @@ from scipy import ndimage
 import invesalius.constants as const
 import invesalius.data.converters as converters
 import invesalius.session as ses
-import invesalius.utils as utils
 import invesalius_rs as floodfill
 from invesalius.data.volume_mask import VolumeMask
 from invesalius.pubsub import pub as Publisher
@@ -218,7 +217,14 @@ class EditionHistory:
 
         if self.index < 0:
             Publisher.sendMessage("Enable undo", value=False)
-        print("AT", self.index, len(self.history), self.history[self.index].filename if hasattr(self.history[self.index], 'filename') else self.history[self.index])
+        print(
+            "AT",
+            self.index,
+            len(self.history),
+            self.history[self.index].filename
+            if hasattr(self.history[self.index], "filename")
+            else self.history[self.index],
+        )
 
     def redo(self, mvolume, actual_slices=None):
         h = self.history

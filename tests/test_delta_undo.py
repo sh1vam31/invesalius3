@@ -1,6 +1,6 @@
 import os
+
 import numpy as np
-import pytest
 
 from invesalius.data.mask import DeltaHistoryNode, EditionHistory
 
